@@ -109,43 +109,54 @@ class DetailScreen extends StatelessWidget {
                     Text(': ${candi.type}')
                   ],
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 Divider(
                   color: Colors.deepPurple.shade100,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
 
                 //BAWAH : deksripsi
+                const Text("Deskripsi",
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                const SizedBox(
+                  height: 16,
+                ),
+                Text(candi.description),
               ],
             ),
           ),
           Padding(
-              const Text("Deskripsi",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-              const SizedBox(
-                height: 16,
-              ),
-              Text(candi.description),
-              Padding(
-                padding: const EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Divider(
-                      color: Colors.deepPurple.shade100,
-                    ),
-                    Text("Galeri", style),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    SizedBox(),
-                    SizedBox(height: 4),
-                    Text("")
-                  ],
+            padding: const EdgeInsets.all(15),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Divider(
+                  color: Colors.deepPurple.shade100,
                 ),
-              ))
+                Text("Galeri",
+                    style:
+                        TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                SizedBox(
+                  height: 10,
+                ),
+                SizedBox(
+                  height: 100,
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: candi.imageUrls.length,
+                      itemBuilder: (context, index) {
+                        return Padding(padding: EdgeInsets.only(left: 8));
+                      }),
+                ),
+                SizedBox(height: 4),
+                Text("Tap untuk memperbesar",
+                    style: TextStyle(fontSize: 12, color: Colors.black))
+              ],
+            ),
+          )
         ],
       ),
     );
