@@ -32,7 +32,13 @@ class MyApp extends StatelessWidget {
                 primary: Colors.deepPurple, surface: Colors.deepPurple[50]),
         useMaterial3: true,
       ),
-      home: SignupScreen(),
+      home: MainScreen(),
+      initialRoute: '/',
+      routes: {
+        '/homescreen': (context) => const HomeScreen(),
+        '/signin': (context) => const SigninScreen(),
+        '/signup': (context) => const SignupScreen(),
+      },
     );
   }
 }
